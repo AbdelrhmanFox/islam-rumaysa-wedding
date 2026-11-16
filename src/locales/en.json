@@ -1,0 +1,43 @@
+{
+  "invitation": "Wedding Invitation",
+  "and": "&",
+  "quranVerse": "﴿وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً﴾",
+  "quranVerseTranslation": "\"And of His signs is that He created for you from yourselves mates that you may find tranquillity in them; and He placed between you affection and mercy.\"",
+  "quranRef": "Surah Ar-Rum — 30:21",
+  "blessing": "بَارَكَ اللهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ",
+  "blessingTranslation": "May Allah bless you both, bestow His blessings upon you, and unite you in all goodness.",
+  "blessingSource": "Prophetic supplication for newlyweds",
+  "blessingNote": "We ask Allah to bless this union and we are honoured to invite you to share in our joy.",
+  "weddingDate": "Wedding Date",
+  "countdown": {
+    "days": "Days",
+    "hours": "Hours",
+    "minutes": "Minutes",
+    "seconds": "Seconds",
+    "day": "Day",
+    "hour": "Hour",
+    "minute": "Minute",
+    "second": "Second",
+    "happeningNow": "The Wedding Is Now! 🎊",
+    "eventPassed": "Congratulations to the happy couple"
+  },
+  "venue": {
+    "title": "Venue",
+    "openMaps": "Open in Maps",
+    "mapLabel": "Venue Location"
+  },
+  "calendar": {
+    "title": "Add to Calendar",
+    "ics": "Download (.ics)",
+    "google": "Add to Google Calendar"
+  },
+  "share": {
+    "title": "Share Invite",
+    "shareBtn": "Share",
+    "copyBtn": "Copy Link",
+    "copied": "Copied!",
+    "whatsapp": "WhatsApp",
+    "whatsappText": "🌹 Wedding Invitation\n{{groomEn}} & {{brideEn}}\n📅 {{date}}\n📍 {{venue}}\n\n{{url}}"
+  },
+  "lang": "عربي"
+}

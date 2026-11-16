@@ -1,0 +1,251 @@
+/* ─── Overlay screen ─────────────────────────────────────────────────── */
+.env-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--clr-base);
+}
+
+.env-bg-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    #fff7f4 0%,
+    #f8ebe4 38%,
+    #f3ddd6 72%,
+    #fae8e2 100%
+  );
+}
+
+.env-bg-scrim {
+  position: absolute;
+  inset: 0;
+  background: rgba(250, 248, 246, 0.18);
+  pointer-events: none;
+}
+
+/* ─── Stage ──────────────────────────────────────────────────────────── */
+.env-stage {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+/* ─── Hint text ───────────────────────────────────────────────────────── */
+.env-hint {
+  color: var(--clr-accent);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-align: center;
+  user-select: none;
+}
+
+[dir="rtl"] .env-hint { letter-spacing: 0.05em; }
+
+@keyframes envPulse {
+  0%, 100% { opacity: 0.55; transform: translateY(0); }
+  50%       { opacity: 1;    transform: translateY(-3px); }
+}
+
+.env-hint--pulse {
+  animation: envPulse 2.2s ease-in-out infinite;
+}
+
+/* ─── Envelope wrapper ───────────────────────────────────────────────── */
+.envelope {
+  position: relative;
+  width: min(360px, 88vw);
+  /* keep a nice rectangular proportion ~3:2 */
+  aspect-ratio: 3 / 2;
+  /* allow inner card to escape above */
+  overflow: visible;
+  filter: drop-shadow(0 24px 48px rgba(139, 26, 58, 0.18));
+  transition: filter 0.25s;
+}
+
+.envelope:hover  { filter: drop-shadow(0 30px 60px rgba(139, 26, 58, 0.24)); }
+.envelope:active { filter: drop-shadow(0 18px 36px rgba(139, 26, 58, 0.16)); }
+
+/* ─── Envelope body ──────────────────────────────────────────────────── */
+.env-body {
+  position: absolute;
+  inset: 0;
+  background: #FBF5EF;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+/* Left fold (triangle from left edge to center) */
+.env-fold--left {
+  position: absolute;
+  top: 0; left: 0; bottom: 0;
+  width: 50%;
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+  background: linear-gradient(135deg, #EDD9CA, #E2CABB);
+}
+
+/* Right fold */
+.env-fold--right {
+  position: absolute;
+  top: 0; right: 0; bottom: 0;
+  width: 50%;
+  clip-path: polygon(100% 0, 0 50%, 100% 100%);
+  background: linear-gradient(225deg, #EDD9CA, #E2CABB);
+}
+
+/* Bottom fold (triangle from bottom edge up to center) */
+.env-fold--bottom {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 55%;
+  clip-path: polygon(0 100%, 100% 100%, 50% 0%);
+  background: linear-gradient(0deg, #F0E0D4, #EDD9CA);
+}
+
+/* Subtle center overlap highlight */
+.env-fold--center {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px; height: 20px;
+  background: rgba(196, 149, 106, 0.15);
+  border-radius: 50%;
+}
+
+/* ─── Inner card ─────────────────────────────────────────────────────── */
+.env-inner-card {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  bottom: 5%;
+  height: 80%;
+  background: #fff;
+  border-radius: 3px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.14);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* overflow: visible so corner rose ornaments peek out slightly */
+  overflow: visible;
+  /* thin accent border on the card */
+  border: 1px solid rgba(139, 26, 58, 0.12);
+}
+
+.env-card-content {
+  text-align: center;
+  padding: 0.55rem 0.85rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  width: 100%;
+}
+
+.env-card-photo {
+  width: 108px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 6px;
+  border: 1.5px solid rgba(139, 26, 58, 0.35);
+  box-shadow: 0 2px 10px rgba(139, 26, 58, 0.12);
+  margin-bottom: 0.2rem;
+  background: #faf8f6;
+}
+
+.env-card-invite {
+  font-family: var(--font-body);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  color: var(--clr-text-muted);
+  text-transform: uppercase;
+  margin-bottom: 0.15rem;
+}
+
+[dir="rtl"] .env-card-invite { letter-spacing: 0.08em; }
+
+.env-card-groom,
+.env-card-bride {
+  font-family: var(--font-display);
+  font-size: clamp(1rem, 3.8vw, 1.35rem);
+  font-weight: 700;
+  color: var(--clr-accent);
+  line-height: 1.2;
+}
+
+.env-card-and {
+  font-family: var(--font-body);
+  font-size: 0.65rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.1em;
+  margin: 0.05rem 0;
+}
+
+/* ─── Flap ───────────────────────────────────────────────────────────── */
+.env-flap-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* flap height ~52% of envelope */
+  height: 52%;
+  z-index: 10;
+  perspective: 800px;
+  perspective-origin: 50% 0%;
+}
+
+.env-flap {
+  width: 100%;
+  height: 100%;
+  /* downward-pointing triangle = flap closed */
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  background: linear-gradient(160deg, #A0213F 0%, #8B1A3A 50%, #6B1230 100%);
+  transform-origin: top center;
+  transform-style: preserve-3d;
+  display: flex;
+  justify-content: center;
+  /* push seal down to around the middle/bottom of the triangle */
+  padding-top: 22%;
+  box-sizing: border-box;
+  /* top inner shadow for depth */
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+/* ─── Wax seal ───────────────────────────────────────────────────────── */
+.env-seal {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.35));
+  /* visible on front face only */
+  backface-visibility: hidden;
+}
+
+.env-seal svg {
+  display: block;
+}
+
+/* ─── "Welcome" overlay after card rises ─────────────────────────────── */
+.env-welcome {
+  position: absolute;
+  bottom: -2.5rem;
+  width: 100%;
+  text-align: center;
+  color: var(--clr-accent);
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+}

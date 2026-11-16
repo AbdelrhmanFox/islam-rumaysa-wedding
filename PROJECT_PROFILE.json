@@ -1,0 +1,87 @@
+{
+  "project_name": "ahmed-nada-wedding",
+  "family": "s3ody-vps",
+  "purpose": "Ahmed & Nada wedding invitation site.",
+  "status": "live per STATUS (event-specific; candidate for retirement - user to decide)",
+  "production": {
+    "live": true,
+    "urls": [
+      "https://wedding.s3odyn8n.tech"
+    ]
+  },
+  "canonical_doc": "projects/ahmed-nada-wedding/docs/WEDDING.md",
+  "skill": [
+    "s3ody-vps"
+  ],
+  "languages": [
+    "TypeScript",
+    "JavaScript"
+  ],
+  "ui_locales": "unknown",
+  "frameworks": [
+    "Vite 8",
+    "nginx"
+  ],
+  "package_manager": "npm",
+  "databases": [],
+  "services": [
+    "nginx"
+  ],
+  "hosts": [
+    "wedding.s3odyn8n.tech"
+  ],
+  "infrastructure": {
+    "vps": "Hostinger KVM4 76.13.0.90",
+    "runtime": "docker compose in /root/ahmed-nada-wedding-deploy",
+    "proxy": "Coolify-managed Traefik (TLS via Let's Encrypt); rule domain-ssl-traefik"
+  },
+  "deployment": {
+    "script": "scripts/local/wedding-deploy.mjs",
+    "modes": [
+      "default",
+      "--quick (dist copy)",
+      "--hotpatch <files>",
+      "--full"
+    ],
+    "remote_dir": "/root/ahmed-nada-wedding-deploy",
+    "ci": null
+  },
+  "git": null,
+  "auth": null,
+  "tests": {
+    "automated": null
+  },
+  "risk_level": "low",
+  "active_agents": [
+    "leader",
+    "web",
+    "verifier"
+  ],
+  "optional_agents": [
+    "vps"
+  ],
+  "forbidden_agents": [
+    "schema",
+    "api",
+    "wordpress"
+  ],
+  "nested_os": null,
+  "special_rules": [
+    "Static site: no schema agent.",
+    "Production deploy only with explicit user approval; prefer --quick/--hotpatch, and use --full only when needed (rule fast-vps-deploy)."
+  ],
+  "profile_meta": {
+    "generated": "2026-10-08",
+    "generated_by": "Groky (Leader)",
+    "sources": [
+      "docs/STATUS.md (2026-09-14)",
+      "docs/PROJECT-MATRIX.md (2026-09-14)",
+      "projects/ahmed-nada-wedding/package.json",
+      "docs/STATUS.md + PROJECT-MATRIX rows"
+    ],
+    "unverified": [
+      "Keep live or retire"
+    ],
+    "notes": "config/stack.json and config/apps-state.json treated as stale. No secret values included; env var NAMES and file locations only."
+  }
+}

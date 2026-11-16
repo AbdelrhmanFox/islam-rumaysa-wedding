@@ -1,0 +1,41 @@
+# Deploy: docker compose --env-file .env.deploy up -d --build
+# VPS path: /root/ahmed-nada-wedding-deploy
+# Live: https://wedding.s3odyn8n.tech
+networks:
+  coolify:
+    external: true
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    networks:
+      - coolify
+    labels:
+      - traefik.enable=true
+      - traefik.docker.network=coolify
+      - traefik.http.middlewares.wedding-redirect.redirectscheme.scheme=https
+      - traefik.http.middlewares.wedding-redirect.redirectscheme.permanent=true
+      - traefik.http.middlewares.wedding-ratelimit.ratelimit.average=80
+      - traefik.http.middlewares.wedding-ratelimit.ratelimit.burst=40
+      - traefik.http.middlewares.wedding-headers.headers.stsSeconds=31536000
+      - traefik.http.middlewares.wedding-headers.headers.forceSTSHeader=true
+      - traefik.http.middlewares.wedding-headers.headers.contentTypeNosniff=true
+      - traefik.http.middlewares.wedding-headers.headers.browserXssFilter=true
+      - traefik.http.middlewares.wedding-headers.headers.frameDeny=true
+      - traefik.http.routers.wedding.rule=Host(`wedding.s3odyn8n.tech`)
+      - traefik.http.routers.wedding.priority=200
+      - traefik.http.routers.wedding.entrypoints=https
+      - traefik.http.routers.wedding.tls=true
+      - traefik.http.routers.wedding.tls.certresolver=letsencrypt
+      - traefik.http.routers.wedding.tls.domains[0].main=wedding.s3odyn8n.tech
+      - traefik.http.routers.wedding.middlewares=wedding-ratelimit@docker,wedding-headers@docker
+      - traefik.http.routers.wedding.service=wedding-web
+      - traefik.http.routers.wedding-http.rule=Host(`wedding.s3odyn8n.tech`)
+      - traefik.http.routers.wedding-http.priority=200
+      - traefik.http.routers.wedding-http.entrypoints=http
+      - traefik.http.routers.wedding-http.middlewares=wedding-redirect@docker
+      - traefik.http.routers.wedding-http.service=wedding-web
+      - traefik.http.services.wedding-web.loadbalancer.server.port=80

@@ -1,0 +1,105 @@
+/* ─── Light rose garden — cream + wine from the original invite ──────── */
+:root {
+  --clr-base:        #FAF8F6;
+  --clr-surface:     #FFFFFF;
+  --clr-surface-2:   #F3EEE9;
+  --clr-accent:      #8B1A3A;
+  --clr-accent-2:    #C4956A;
+  --clr-text:        #1A1219;
+  --clr-text-muted:  #6B5B65;
+  --clr-border:      #E0D3CC;
+
+  --clr-night:       #FAF8F6;
+  --clr-canopy:      #F7F1EB;
+  --clr-panel:       #FFFFFF;
+  --clr-moon:        #1A1219;
+  --clr-brass:       #C4956A;
+  --clr-leaf:        #8B1A3A;
+  --clr-mist:        #6B5B65;
+
+  --font-display: 'El Messiri', 'Cairo', sans-serif;
+  --font-kufic:   'El Messiri', 'Cairo', sans-serif;
+  --font-body:    'Cairo', 'Inter', sans-serif;
+  --font-latin:   'Inter', 'Cairo', sans-serif;
+
+  --sp-xs:   0.5rem;
+  --sp-sm:   1rem;
+  --sp-md:   1.75rem;
+  --sp-lg:   3rem;
+  --sp-xl:   5rem;
+
+  --r-sm: 0.5rem;
+  --r-md: 1rem;
+  --r-lg: 1.5rem;
+
+  --shadow-sm: 0 1px 4px rgba(139,26,58,.08);
+  --shadow-md: 0 4px 20px rgba(139,26,58,.12);
+  --shadow-lg: 0 8px 40px rgba(139,26,58,.16);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--clr-base);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+[lang="ar"] body, [dir="rtl"] body {
+  font-size: 17px;
+}
+
+.font-display { font-family: var(--font-display); }
+.font-latin   { font-family: var(--font-latin); }
+
+h1, h2, h3 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--clr-border); border-radius: 3px; }
+
+:focus-visible {
+  outline: 2px solid var(--clr-accent);
+  outline-offset: 3px;
+}
+
+#root {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  width: 100%;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: var(--sp-md);
+}
+
+.section {
+  padding-block: var(--sp-lg);
+}
+
+@keyframes floatPattern {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-12px, -8px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+}

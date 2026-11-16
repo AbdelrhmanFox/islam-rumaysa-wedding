@@ -1,0 +1,502 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  position: relative;
+  background: var(--clr-base);
+}
+
+.lang-toggle-wrap {
+  position: fixed;
+  top: 1.15rem;
+  inset-inline-end: 1.25rem;
+  z-index: 100;
+}
+
+.lang-toggle {
+  background: #fff;
+  border: 1.5px solid rgba(0,0,0,0.12);
+  color: #111;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  cursor: pointer;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.12);
+}
+
+.lang-toggle:hover { background: #f5f0ee; }
+
+.hero {
+  position: relative;
+  min-height: 100dvh;
+  display: flex;
+  align-items: flex-end;
+  justify-content: stretch;
+  overflow: hidden;
+  padding-block: 4.5rem 3rem;
+}
+
+.hero-gradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    165deg,
+    #fff7f4 0%,
+    #f8ebe4 38%,
+    #f3ddd6 72%,
+    #fae8e2 100%
+  );
+}
+
+.hero-scrim {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(250, 248, 246, 0.92) 0%, transparent 48%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: start;
+  color: var(--clr-text);
+  display: grid;
+  gap: 1.5rem;
+}
+
+.invite-label {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  color: var(--clr-accent);
+  font-weight: 600;
+}
+
+.couple-names {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 12vw, 5.4rem);
+  font-weight: 700;
+  line-height: 1.05;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  color: var(--clr-accent);
+}
+
+.names-and {
+  font-family: var(--font-body);
+  font-size: 0.28em;
+  color: var(--clr-accent-2);
+  letter-spacing: 0.18em;
+  margin-block: 0.25em;
+  font-weight: 400;
+}
+
+.hero-rose {
+  position: absolute;
+  top: 5.5rem;
+  inset-inline-end: 8%;
+  z-index: 2;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 18px rgba(139, 26, 58, 0.18));
+}
+
+.hero-ornament { width: min(280px, 80%); }
+
+.couple-photo {
+  width: min(100%, 22rem);
+  justify-self: center;
+  margin-block: 0.25rem 0.35rem;
+}
+
+.couple-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border-radius: var(--r-md);
+  border: 1.5px solid var(--clr-border);
+  box-shadow: var(--shadow-md);
+  background: var(--clr-surface);
+}
+
+.quran-verse-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-width: 28rem;
+  border-inline-start: 2px solid var(--clr-accent);
+  padding-inline-start: 1rem;
+}
+
+[dir="ltr"] .quran-verse-block {
+  border-inline-start: 0;
+  border-inline-end: 2px solid var(--clr-accent);
+  padding-inline-start: 0;
+  padding-inline-end: 1rem;
+}
+
+.quran-verse-text {
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 3vw, 1.35rem);
+  line-height: 1.85;
+  color: var(--clr-text);
+  direction: rtl;
+  font-weight: 600;
+}
+
+.quran-verse-translation {
+  font-family: var(--font-latin);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--clr-text-muted);
+  line-height: 1.55;
+}
+
+.quran-verse-ref {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--clr-accent-2);
+}
+
+.wedding-date-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-self: center;
+  width: min(100%, 26rem);
+  gap: 0.2rem;
+  padding: 1.15rem 1.4rem 1.25rem;
+  background: var(--clr-surface);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md);
+}
+
+.date-label {
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  color: var(--clr-accent-2);
+  margin-bottom: 0.35rem;
+}
+
+.date-mark {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 6vw, 2.35rem);
+  color: var(--clr-accent);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.date-value {
+  font-family: var(--font-body);
+  font-size: clamp(1.15rem, 4vw, 1.45rem);
+  font-weight: 600;
+  color: var(--clr-text);
+}
+
+.time-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 4.5vw, 1.75rem);
+  font-weight: 700;
+  color: var(--clr-accent);
+  direction: rtl;
+  margin-top: 0.25rem;
+}
+
+[dir="ltr"] .time-value {
+  direction: ltr;
+  font-family: var(--font-latin);
+}
+
+.main-content {
+  flex: 1;
+  padding-block: var(--sp-lg);
+  background: var(--clr-base);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  font-weight: 700;
+  color: var(--clr-accent);
+  text-align: center;
+  margin-bottom: var(--sp-md);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+@media (max-width: 400px) {
+  .countdown-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+.count-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.45rem;
+  background: var(--clr-surface);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-md);
+  padding: 1.1rem 0.4rem 0.9rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.count-number {
+  font-family: var(--font-latin);
+  font-size: clamp(1.8rem, 6vw, 2.6rem);
+  font-weight: 700;
+  color: var(--clr-accent);
+  letter-spacing: 0.02em;
+  line-height: 1;
+  direction: ltr;
+  overflow: hidden;
+  display: flex;
+}
+
+.count-label {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--clr-text-muted);
+  text-align: center;
+}
+
+.countdown-done {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: clamp(1.2rem, 4vw, 1.8rem);
+  color: var(--clr-accent);
+  padding: var(--sp-md);
+  background: var(--clr-surface);
+  border-radius: var(--r-lg);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.7rem 1.35rem;
+  border-radius: var(--r-sm);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: transform 0.15s, background 0.15s, color 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.btn:active { transform: scale(0.97); }
+
+.btn-icon {
+  font-style: normal;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+}
+
+.btn-primary {
+  background: var(--clr-accent);
+  color: #fff;
+  box-shadow: 0 3px 14px rgba(139,26,58,.28);
+}
+
+.btn-primary:hover { background: #a01f46; }
+
+.btn-outline {
+  background: var(--clr-surface);
+  color: var(--clr-accent);
+  border: 1.5px solid var(--clr-accent);
+}
+
+.btn-outline:hover { background: #fdf4f6; }
+
+.btn-ghost {
+  background: var(--clr-surface-2);
+  color: var(--clr-text);
+  border: 1px solid var(--clr-border);
+}
+
+.btn-ghost:hover { background: var(--clr-border); }
+
+.btn-ghost.copied {
+  background: #edf7ed;
+  color: #1f7a1f;
+  border-color: #a5d6a7;
+}
+
+.btn-whatsapp {
+  background: #25D366;
+  color: #fff;
+}
+
+.btn-whatsapp:hover { background: #1da850; }
+
+.venue-section,
+.calendar-section,
+.share-section {
+  padding-block: var(--sp-lg);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--sp-sm);
+}
+
+.venue-name {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4vw, 1.7rem);
+  color: var(--clr-text);
+  line-height: 1.45;
+  font-weight: 700;
+  text-align: center;
+}
+
+.venue-address {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  line-height: 1.75;
+  max-width: 28rem;
+  text-align: center;
+  margin-inline: auto;
+}
+
+.venue-map-embed {
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--clr-border);
+  border-radius: var(--r-md);
+  margin-block: 1rem 0.5rem;
+}
+
+.venue-btn { align-self: center; margin-top: 0.5rem; }
+
+.calendar-row,
+.share-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.footer {
+  padding-block: var(--sp-md) 5rem;
+  background: var(--clr-base);
+}
+
+.footer-text {
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--clr-text-muted);
+}
+
+.order-cta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.65rem;
+  margin-inline: auto;
+  margin-top: 1.6rem;
+  width: fit-content;
+  text-decoration: none;
+  transition: transform 0.15s;
+}
+
+.order-cta:hover {
+  transform: translateY(-1px);
+}
+
+.order-cta-label {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--clr-text);
+  white-space: nowrap;
+}
+
+.order-cta-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.85rem;
+  height: 2.85rem;
+  color: #fff;
+  background: #25D366;
+  border: 0;
+  border-radius: 50%;
+}
+
+.blessing-section {
+  padding-block: var(--sp-lg) var(--sp-md);
+}
+
+.blessing-card {
+  position: relative;
+  background: linear-gradient(145deg, #fff 0%, #fdf7f2 100%);
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--r-lg);
+  padding: 2rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+
+.blessing-top-ornament {
+  font-size: 1rem;
+  color: var(--clr-accent-2);
+}
+
+.blessing-dua {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 4.2vw, 1.75rem);
+  line-height: 1.85;
+  color: var(--clr-accent);
+  direction: rtl;
+  font-weight: 700;
+}
+
+.blessing-source {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  color: var(--clr-accent-2);
+}
+
+.blessing-translation {
+  font-family: var(--font-latin);
+  font-size: 0.88rem;
+  font-weight: 300;
+  color: var(--clr-text-muted);
+  line-height: 1.6;
+  max-width: 420px;
+}
+
+.blessing-divider {
+  width: 48px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent, var(--clr-accent-2), transparent);
+  margin: 0.25rem 0;
+}
+
+.blessing-note {
+  font-family: var(--font-body);
+  font-size: clamp(0.9rem, 2.5vw, 1.02rem);
+  color: var(--clr-text-muted);
+  line-height: 1.85;
+  max-width: 480px;
+}
